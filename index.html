@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>EmpregoMelhor</title>
 
+    <!-- Owl Carousel -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"
+      rel="stylesheet"
+    />
+
     <!-- FontAwesome -->
     <link
       rel="stylesheet"
@@ -36,6 +42,16 @@
       rel="stylesheet"
     />
     <style>
+      ul {
+        list-style-type: none;
+        padding: 0;
+      }
+
+      .no-margin {
+        margin: 0 !important;
+        padding: 0 !important;
+      }
+
       .navbar-brand img {
         height: 40px;
       }
@@ -55,7 +71,7 @@
         margin-right: 0; /* No margin for the last nav item */
       }
       .carousel-inner {
-        height: 30rem; /* Fixed height for the carousel */
+        height: 40rem; /* Fixed height for the carousel */
       }
       .carousel-h-1 {
         font-weight: 700;
@@ -102,10 +118,119 @@
         color: #06015b;
         font-weight: 700;
       }
-      .news-img {
-        height: 100%;
-        object-fit: cover;
+      .swiper-container {
+        width: 100%;
+        padding: 20px 0;
+        position: relative; /* Ensure relative positioning */
+        overflow: hidden; /* Ensure content doesn't overflow */
       }
+
+      .swiper-slide {
+        display: flex;
+        justify-content: center;
+      }
+
+      .swiper-pagination {
+        position: relative;
+        bottom: 10px;
+        text-align: center;
+      }
+
+      .swiper-pagination-bullet {
+        background: #007bff;
+        opacity: 1;
+      }
+
+      .swiper-pagination-bullet-active {
+        background: #0056b3;
+      }
+
+      .swiper-button-next,
+      .swiper-button-prev {
+        color: #007bff;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 10;
+      }
+
+      .swiper-button-next {
+        right: 10px;
+      }
+
+      .swiper-button-prev {
+        left: 10px;
+      }
+
+      .card {
+        width: 100%;
+        margin: 10px;
+      }
+
+      .card-img-top {
+        width: 90%;
+        margin: 30px auto;
+      }
+
+      .card-img {
+        width: 100%;
+        height: auto;
+      }
+
+      .card-body {
+        padding: 10px;
+      }
+
+      .card-title {
+        font-size: 1.2rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .card-subtitle {
+        font-size: 0.9rem;
+        font-weight: 400;
+        color: #6c757d; /* Bootstrap text-muted color */
+      }
+
+      .smaller-card .card-title {
+        font-size: 1rem;
+      }
+
+      .smaller-card .card-subtitle {
+        font-size: 0.8rem;
+      }
+
+      @media (max-width: 768px) {
+        .swiper-button-next,
+        .swiper-button-prev {
+          width: 30px;
+          height: 30px;
+          top: auto;
+          bottom: 10px;
+          transform: none;
+        }
+
+        .swiper-button-next {
+          right: 50px;
+        }
+
+        .swiper-button-prev {
+          left: 50px;
+        }
+
+        .swiper-pagination {
+          bottom: 40px;
+        }
+
+        .card-title {
+          font-size: 1rem;
+        }
+
+        .card-subtitle {
+          font-size: 0.8rem;
+        }
+      }
+
       .search-cont {
         background-color: #06015b;
       }
@@ -144,8 +269,8 @@
         border-radius: 10px;
       }
       .testimonial-card img {
-        width: 100px;
-        height: 100px;
+        width: 150px;
+        height: 150px;
         border-radius: 50%;
         object-fit: cover;
         margin-bottom: 15px;
@@ -159,13 +284,44 @@
       .container-custom {
         background-color: #06015b;
         color: white;
-        padding: 20px;
-        min-height: 100vh;
+        padding: 0px 8%;
+        min-height: 50vh;
       }
+
+      .new-container {
+        padding-left: 10%;
+        padding-right: 10%;
+        padding-bottom: 0;
+        margin: 0;
+      }
+
+      .new-row {
+        margin: 0;
+      }
+
+      .new-col {
+        padding: 0;
+      }
+
+      .new-text-center {
+        text-align: center;
+      }
+
+      .new-btn {
+        transform: scale(1.7);
+        border: none;
+        margin-top: 20px;
+      }
+
+      .new-content-padding {
+        padding: 20px;
+      }
+
       .form-group input,
       .form-group textarea {
-        background-color: #c8fdc8;
+        background-color: #fff;
         color: white;
+        border-radius: 20px;
       }
       .hr-custom {
         border: 1px solid white;
@@ -228,6 +384,9 @@
 
         .carousel-text {
           left: 20%;
+        }
+        .rounded {
+          margin-left: 80px;
         }
       }
       @media (min-width: 1025px) {
@@ -410,6 +569,161 @@
       </a>
     </div>
 
+    <div class="container my-5">
+      <h2 class="text-center heading">MELHORES VAGAS</h2>
+      <div class="swiper-container best-vagas-carousel">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <div class="card">
+              <img
+                src="https://via.placeholder.com/300"
+                class="card-img-top"
+                alt="Image 1"
+              />
+              <div class="card-body">
+                <h5 class="card-title">Title 1</h5>
+                <p class="card-subtitle">Subtitle 1</p>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card">
+              <img
+                src="https://via.placeholder.com/300"
+                class="card-img-top"
+                alt="Image 2"
+              />
+              <div class="card-body">
+                <h5 class="card-title">Title 2</h5>
+                <p class="card-subtitle">Subtitle 2</p>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card">
+              <img
+                src="https://via.placeholder.com/300"
+                class="card-img-top"
+                alt="Image 3"
+              />
+              <div class="card-body">
+                <h5 class="card-title">Title 3</h5>
+                <p class="card-subtitle">Subtitle 3</p>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card">
+              <img
+                src="https://via.placeholder.com/300"
+                class="card-img-top"
+                alt="Image 4"
+              />
+              <div class="card-body">
+                <h5 class="card-title">Title 4</h5>
+                <p class="card-subtitle">Subtitle 4</p>
+              </div>
+            </div>
+          </div>
+          <!-- Repeat slides as necessary -->
+        </div>
+        <!-- Add Pagination -->
+        <div class="swiper-pagination"></div>
+        <!-- Add Navigation -->
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+      </div>
+    </div>
+
+    <div class="container my-5">
+      <h2 class="text-center heading">ÚLTIMAS VAGAS</h2>
+      <div class="swiper-container latest-vagas-carousel">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <div class="card">
+              <div class="row no-gutters">
+                <div class="col-md-4">
+                  <img
+                    src="https://via.placeholder.com/300"
+                    class="card-img"
+                    alt="Image 1"
+                  />
+                </div>
+                <div class="col-md-8">
+                  <div class="card-body">
+                    <h5 class="card-title">Title 1</h5>
+                    <p class="card-subtitle">Subtitle 1</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card">
+              <div class="row no-gutters">
+                <div class="col-md-4">
+                  <img
+                    src="https://via.placeholder.com/300"
+                    class="card-img"
+                    alt="Image 1"
+                  />
+                </div>
+                <div class="col-md-8">
+                  <div class="card-body">
+                    <h5 class="card-title">Title 1</h5>
+                    <p class="card-subtitle">Subtitle 1</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card">
+              <div class="row no-gutters">
+                <div class="col-md-4">
+                  <img
+                    src="https://via.placeholder.com/300"
+                    class="card-img"
+                    alt="Image 1"
+                  />
+                </div>
+                <div class="col-md-8">
+                  <div class="card-body">
+                    <h5 class="card-title">Title 1</h5>
+                    <p class="card-subtitle">Subtitle 1</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card">
+              <div class="row no-gutters">
+                <div class="col-md-4">
+                  <img
+                    src="https://via.placeholder.com/300"
+                    class="card-img"
+                    alt="Image 1"
+                  />
+                </div>
+                <div class="col-md-8">
+                  <div class="card-body">
+                    <h5 class="card-title">Title 1</h5>
+                    <p class="card-subtitle">Subtitle 1</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Add Pagination -->
+        <div class="swiper-pagination"></div>
+        <!-- Add Navigation -->
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+      </div>
+    </div>
+
     <!-- Centered Heading -->
     <div class="container mt-4">
       <h1 class="heading text-center mb-4">Encontre sua vaga de Emprego</h1>
@@ -467,152 +781,6 @@
       </div>
     </div>
 
-    <div class="container-fluid mt-3">
-      <div class="row">
-        <!-- First Column -->
-        <div class="col-lg-4 col-md-12 mb-4">
-          <div class="card h-90">
-            <img
-              src="https://via.placeholder.com/400x600"
-              class="card-img-top news-img"
-              style="width: 100%; height: 82vh"
-              alt="Big News Image"
-            />
-            <div class="card-body">
-              <h5 class="card-title">Big News Title</h5>
-              <p class="card-text">Subtitle below the title.</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Second Column -->
-        <div class="col-lg-4 col-md-6 mb-4">
-          <div class="card">
-            <div class="row no-gutters">
-              <div class="col-md-4">
-                <img
-                  src="https://via.placeholder.com/150"
-                  class="card-img"
-                  alt="Small News Image 1"
-                />
-              </div>
-              <div class="col-md-8">
-                <div class="card-body">
-                  <h5 class="card-title">Small News Title 1</h5>
-                </div>
-              </div>
-            </div>
-            <!-- Repeat this card structure for Small News Images 2, 3, and 4 -->
-            <!-- Example for Small News Image 2 -->
-            <div class="row no-gutters mt-3">
-              <div class="col-md-4">
-                <img
-                  src="https://via.placeholder.com/150"
-                  class="card-img"
-                  alt="Small News Image 2"
-                />
-              </div>
-              <div class="col-md-8">
-                <div class="card-body">
-                  <h5 class="card-title">Small News Title 2</h5>
-                </div>
-              </div>
-            </div>
-            <div class="row no-gutters mt-3">
-              <div class="col-md-4">
-                <img
-                  src="https://via.placeholder.com/150"
-                  class="card-img"
-                  alt="Small News Image 2"
-                />
-              </div>
-              <div class="col-md-8">
-                <div class="card-body">
-                  <h5 class="card-title">Small News Title 2</h5>
-                </div>
-              </div>
-            </div>
-            <div class="row no-gutters mt-3">
-              <div class="col-md-4">
-                <img
-                  src="https://via.placeholder.com/150"
-                  class="card-img"
-                  alt="Small News Image 2"
-                />
-              </div>
-              <div class="col-md-8">
-                <div class="card-body">
-                  <h5 class="card-title">Small News Title 2</h5>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Third Column -->
-        <div class="col-lg-4 col-md-6 mb-4">
-          <div class="card">
-            <div class="row no-gutters">
-              <div class="col-md-4">
-                <img
-                  src="https://via.placeholder.com/150"
-                  class="card-img"
-                  alt="Small News Image 5"
-                />
-              </div>
-              <div class="col-md-8">
-                <div class="card-body">
-                  <h5 class="card-title">Small News Title 5</h5>
-                </div>
-              </div>
-            </div>
-            <div class="row no-gutters mt-3">
-              <div class="col-md-4">
-                <img
-                  src="https://via.placeholder.com/150"
-                  class="card-img"
-                  alt="Small News Image 5"
-                />
-              </div>
-              <div class="col-md-8">
-                <div class="card-body">
-                  <h5 class="card-title">Small News Title 5</h5>
-                </div>
-              </div>
-            </div>
-            <div class="row no-gutters mt-3">
-              <div class="col-md-4">
-                <img
-                  src="https://via.placeholder.com/150"
-                  class="card-img"
-                  alt="Small News Image 5"
-                />
-              </div>
-              <div class="col-md-8">
-                <div class="card-body">
-                  <h5 class="card-title">Small News Title 5</h5>
-                </div>
-              </div>
-            </div>
-            <div class="row no-gutters mt-3">
-              <div class="col-md-4">
-                <img
-                  src="https://via.placeholder.com/150"
-                  class="card-img"
-                  alt="Small News Image 5"
-                />
-              </div>
-              <div class="col-md-8">
-                <div class="card-body">
-                  <h5 class="card-title">Small News Title 5</h5>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="container-fluid search-cont min-vh-25 d-flex flex-column">
       <div class="row flex-grow-1">
         <div class="col-lg-6">
@@ -646,36 +814,36 @@
         </div>
         <div class="col-lg-6 d-flex flex-column">
           <!-- Right Column -->
-          <div class="right-column mt-auto d-flex justify-content-center">
+          <div
+            class="right-column d-flex flex-grow-1 align-items-end justify-content-center"
+          >
             <img
               src="images/tablet.png"
               alt="Image"
               class="img-fluid"
-              style="width: 300px"
+              style="max-width: 100%; height: auto; max-height: 100%"
             />
           </div>
         </div>
       </div>
     </div>
 
-    <div class="container-fluid white-cont">
-      <div class="row">
-        <div class="col-lg-6">
+    <div
+      class="container-fluid new-container"
+      style="background-color: #e5ebf1"
+    >
+      <div class="row new-row">
+        <div class="col-lg-6 new-col">
           <!-- Left Column -->
-          <div class="left-column text-center">
-            <button
-              class="btn-custom mt-5"
-              style="transform: scale(1.7); border: none"
-            >
-              Cadastre-se
-            </button>
+          <div class="new-left-column new-text-center mt-4">
+            <button class="new-btn btn-custom mt-5">Cadastre-se</button>
           </div>
         </div>
-        <div class="col-lg-6">
+        <div class="col-lg-6 new-col">
           <!-- Right Column -->
-          <div class="right-column">
-            <h1 class="text-center">Não deixe sua frota parada.</h1>
-            <h5 class="text-center font-weight-light">
+          <div class="new-right-column new-text-center mt-5">
+            <h1 class="heading">Não deixe sua frota parada.</h1>
+            <h5 class="font-weight-light blue-text">
               Impulsione seu negócio. Na emprego melhor, você encontra
               motoristas profissionais de todo o Brasil.
             </h5>
@@ -685,11 +853,13 @@
     </div>
 
     <div
-      class="container-fluid full-height"
-      style="background-color: #e5ebf1; overflow: hidden"
+      class="container-fluid new-container"
+      style="background-color: #e5ebf1"
     >
-      <div class="row h-100">
-        <div class="col-md-4 d-flex align-items-center justify-content-center">
+      <div class="row new-row">
+        <div
+          class="col-md-4 new-col d-flex align-items-center justify-content-center"
+        >
           <img
             src="images/coworking.png"
             class="img-fluid"
@@ -697,8 +867,8 @@
             alt="Placeholder Image"
           />
         </div>
-        <div class="col-md-8 d-flex align-items-center">
-          <div style="padding: 20px">
+        <div class="col-md-8 new-col d-flex align-items-center">
+          <div class="new-content-padding">
             <p>
               <strong> Agilidade e facilidade: </strong> Acesse nosso portal
               para anunciar sua vaga online e utilize filtros personalizados
@@ -782,41 +952,37 @@
       </div>
     </div>
 
-    <div class="container-fluid white-cont">
-      <div class="row">
-        <div class="col-lg-6">
+    <div
+      class="container-fluid new-container"
+      style="background-color: #e5ebf1"
+    >
+      <div class="row new-row">
+        <div class="col-lg-6 new-col">
+          <!-- Left Column -->
+          <div class="new-left-column new-text-center mt-4">
+            <button class="new-btn btn-custom mt-5">Cadastre-se</button>
+          </div>
+        </div>
+        <div class="col-lg-6 new-col">
           <!-- Right Column -->
-          <div class="right-column">
-            <h1 class="text-center blue-text">
-              Trabalhe nas melhores empresas.
-            </h1>
-            <h5 class="text-center font-weight-light blue-text mb-3">
+          <div class="new-right-column new-text-center mt-5">
+            <h1 class="heading">Trabalhe nas melhores empresas.</h1>
+            <h5 class="font-weight-light blue-text">
               Na Emprego Melhor, você encontra mais oportunidades de emprego
               para alavancar sua carreira.
             </h5>
-          </div>
-        </div>
-        <div class="col-lg-6">
-          <!-- Left Column -->
-          <div class="left-column text-center">
-            <button
-              class="btn-custom mt-5"
-              style="transform: scale(1.7); border: none"
-            >
-              Cadastre-se
-            </button>
           </div>
         </div>
       </div>
     </div>
 
     <div
-      class="container-fluid full-height"
-      style="background-color: #e5ebf1; overflow: hidden"
+      class="container-fluid new-container"
+      style="background-color: #e5ebf1"
     >
-      <div class="row h-100">
-        <div class="col-md-8 d-flex align-items-center">
-          <div style="padding: 20px">
+      <div class="row new-row">
+        <div class="col-md-8 new-col d-flex align-items-center">
+          <div class="new-content-padding">
             <p>
               <strong> Agilidade e facilidade: </strong> Acesse nosso portal
               para anunciar sua vaga online e utilize filtros personalizados
@@ -840,51 +1006,15 @@
             </p>
           </div>
         </div>
-        <div class="col-md-4 d-flex align-items-center justify-content-center">
+        <div
+          class="col-md-4 new-col d-flex align-items-center justify-content-center"
+        >
           <img
             src="images/worker-draw.png"
             class="img-fluid"
             style="max-width: 100%; height: auto"
             alt="Placeholder Image"
           />
-        </div>
-      </div>
-    </div>
-
-    <div
-      class="container-fluid full-height"
-      style="background-color: #e5ebf1; overflow: hidden"
-    >
-      <h1 class="blue-text">
-        Profissionais Qualificados:
-        <br />
-        Indispensáveis para o Mercado
-      </h1>
-      <div class="row h-100">
-        <div class="col-md-4 d-flex align-items-center justify-content-center">
-          <img
-            src="images/laptop-working.png"
-            class="img-fluid"
-            style="max-width: 100%; height: auto"
-            alt="Placeholder Image"
-          />
-        </div>
-        <div class="col-md-8 d-flex align-items-center">
-          <div style="padding: 20px">
-            <p>
-              A qualificação profissional é essencial para aumentar as chances
-              de emprego e possibilitar maiores salários, Profissionais
-              bem-preparados são cada vez mais por empresas sólidas, que
-              valorizam a destreza, educação, segurança e eficiência.
-            </p>
-            <br />
-            <p>
-              Investir em qualificação não só melhora a empregabilidade, mas
-              também oferece melhores perspectivas de carreira e salários mais
-              altos, destacando a importância do aprimoramento contínuo para se
-              destacar nesse setor competitivo
-            </p>
-          </div>
         </div>
       </div>
     </div>
@@ -958,27 +1088,47 @@
       <div class="row">
         <!-- Left Column -->
         <div class="col-12 col-md-3 p-3">
-          <h2>Fale com um especialista</h2>
+          <h3 class="font-weight-bold pb-3 pt-4">Fale com um especialista</h3>
           <form>
             <div class="form-group">
-              <label for="nome">Nome*</label>
-              <input type="text" class="form-control" id="nome" />
+              <input
+                type="text"
+                class="form-control"
+                id="nome"
+                placeholder="Nome*"
+              />
             </div>
             <div class="form-group">
-              <label for="email">Email*</label>
-              <input type="email" class="form-control" id="email" />
+              <input
+                type="email"
+                class="form-control"
+                id="email"
+                placeholder="Email*"
+              />
             </div>
             <div class="form-group">
-              <label for="telefone">Telefone*</label>
-              <input type="tel" class="form-control" id="telefone" />
+              <input
+                type="tel"
+                class="form-control"
+                id="telefone"
+                placeholder="Telefone*"
+              />
             </div>
             <div class="form-group">
-              <label for="assunto">Assunto*</label>
-              <input type="text" class="form-control" id="assunto" />
+              <input
+                type="text"
+                class="form-control"
+                id="assunto"
+                placeholder="Assunto*"
+              />
             </div>
             <div class="form-group">
-              <label for="mensagem">Digite sua mensagem*</label>
-              <textarea class="form-control" id="mensagem" rows="3"></textarea>
+              <textarea
+                class="form-control"
+                id="mensagem"
+                rows="3"
+                placeholder="Digite sua mensagem*"
+              ></textarea>
             </div>
           </form>
         </div>
@@ -986,18 +1136,26 @@
         <!-- Right Column -->
         <div class="col-12 col-md-9 p-3">
           <div class="p-3 rounded">
-            <h2>EMPREGO MELHOR</h2>
-            <p>
+            <h1 class="h1 display-4 font-weight-bold">EMPREGO MELHOR</h1>
+            <p class="h4 display-5">
               O portal que aproxima os transportadores e motoristas de todo o
               Brasil.
             </p>
-            <p><i class="fas fa-envelope"></i> contato@empregomelhor.com.br</p>
-            <p><i class="fas fa-phone"></i> (12) 98102-3748</p>
+            <div class="row">
+              <div class="col-12 col-lg-6">
+                <p>
+                  <i class="fas fa-envelope"></i> contato@empregomelhor.com.br
+                </p>
+              </div>
+              <div class="col-12 col-lg-6">
+                <p><i class="fas fa-phone"></i> (12) 98102-3748</p>
+              </div>
+            </div>
             <hr class="hr-custom" />
             <div class="row">
               <!-- Páginas -->
               <div class="col-12 col-sm-6">
-                <h3>Páginas:</h3>
+                <h3 class="h1 font-weight-bold">Páginas</h3>
                 <ul>
                   <li>Empresas</li>
                   <li>Motorista</li>
@@ -1007,7 +1165,7 @@
               </div>
               <!-- Institucional -->
               <div class="col-12 col-sm-6">
-                <h3>Institucional:</h3>
+                <h3 class="h1 font-weight-bold">Institucional</h3>
                 <ul>
                   <li>Sobre</li>
                   <li>Como funciona</li>
@@ -1017,8 +1175,61 @@
             </div>
           </div>
         </div>
+        <h4 class="font-weight-bold pb-3 pt-4">
+          © Emprego Melhor. Todos direitos reservados.
+        </h4>
       </div>
     </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        new Swiper(".best-vagas-carousel", {
+          loop: true,
+          slidesPerView: 1,
+          spaceBetween: 10,
+          navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+          },
+          pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+          },
+          breakpoints: {
+            600: {
+              slidesPerView: 2,
+            },
+            1000: {
+              slidesPerView: 4,
+            },
+          },
+        });
+
+        new Swiper(".latest-vagas-carousel", {
+          loop: true,
+          slidesPerView: 1,
+          spaceBetween: 10,
+          navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+          },
+          pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+          },
+          breakpoints: {
+            600: {
+              slidesPerView: 2,
+            },
+            1000: {
+              slidesPerView: 4,
+            },
+          },
+        });
+      });
+    </script>
 
     <!-- Bootstrap JS and dependencies -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
