@@ -42,6 +42,10 @@
       rel="stylesheet"
     />
     <style>
+      html {
+        scroll-behavior: smooth;
+      }
+
       ul {
         list-style-type: none;
         padding: 0;
@@ -407,6 +411,10 @@
           left: 25%;
         }
 
+        .cadastre {
+          margin-left: 6%;
+        }
+
         .white-cont {
           height: 30vh;
         }
@@ -438,7 +446,7 @@
           margin-left: 5%;
         }
         .cadastre {
-          margin-left: 2%;
+          margin-left: 6%;
         }
 
         .white-cont {
@@ -467,10 +475,10 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link" href="#">Para Empresas</a>
+            <a class="nav-link" href="#para-empresas">Para Empresas</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Para Motoristas</a>
+            <a class="nav-link" href="#para-motoristas">Para Motoristas</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Cursos</a>
@@ -479,10 +487,10 @@
             <a class="nav-link" href="#">Trabalhe no Exterior</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Contato</a>
+            <a class="nav-link" href="#contato">Contato</a>
           </li>
           <li class="nav-item">
-            <a class="btn btn-custom" href="#">Entrar</a>
+            <a class="btn btn-custom" href="login.html">Entrar</a>
           </li>
         </ul>
       </div>
@@ -517,9 +525,9 @@
               oportunidades de emprego.
             </p>
             <a
-              class="btn btn-custom mt-3 cadastre"
+              class="btn btn-custom mt-5 cadastre"
               href="#"
-              style="transform: scale(1.2)"
+              style="transform: scale(1.6)"
               >CADASTRE-SE</a
             >
           </div>
@@ -569,60 +577,32 @@
       </a>
     </div>
 
-    <!-- Centered Heading -->
     <div class="container mt-4">
       <h1 class="heading text-center mb-4">Encontre sua vaga de Emprego</h1>
 
-      <!-- Six Small Images -->
-      <div class="row">
-        <div class="col-lg-2 col-md-4 col-6 mb-3">
-          <img
-            src="images/si1.jpeg"
-            alt="Image 1"
-            class="img-fluid"
-            style="height: 200px; width: 100%; object-fit: contain"
-          />
+      <div class="swiper-container swiper-container-s1">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <img src="images/si1.jpeg" alt="Image 1" class="img-fluid" />
+          </div>
+          <div class="swiper-slide">
+            <img src="images/si2.jpeg" alt="Image 2" class="img-fluid" />
+          </div>
+          <div class="swiper-slide">
+            <img src="images/si3.jpeg" alt="Image 3" class="img-fluid" />
+          </div>
+          <div class="swiper-slide">
+            <img src="images/si4.jpeg" alt="Image 4" class="img-fluid" />
+          </div>
+          <div class="swiper-slide">
+            <img src="images/si5.jpeg" alt="Image 5" class="img-fluid" />
+          </div>
+          <div class="swiper-slide">
+            <img src="images/si6.jpeg" alt="Image 6" class="img-fluid" />
+          </div>
         </div>
-        <div class="col-lg-2 col-md-4 col-6 mb-3">
-          <img
-            src="images/si2.jpeg"
-            alt="Image 2"
-            class="img-fluid"
-            style="height: 200px; width: 100%; object-fit: contain"
-          />
-        </div>
-        <div class="col-lg-2 col-md-4 col-6 mb-3">
-          <img
-            src="images/si3.jpeg"
-            alt="Image 3"
-            class="img-fluid"
-            style="height: 200px; width: 100%; object-fit: contain"
-          />
-        </div>
-        <div class="col-lg-2 col-md-4 col-6 mb-3">
-          <img
-            src="images/si4.jpeg"
-            alt="Image 4"
-            class="img-fluid"
-            style="height: 200px; width: 100%; object-fit: contain"
-          />
-        </div>
-        <div class="col-lg-2 col-md-4 col-6 mb-3">
-          <img
-            src="images/si5.jpeg"
-            alt="Image 5"
-            class="img-fluid"
-            style="height: 200px; width: 100%; object-fit: contain"
-          />
-        </div>
-        <div class="col-lg-2 col-md-4 col-6 mb-3">
-          <img
-            src="images/si6.jpeg"
-            alt="Image 6"
-            class="img-fluid"
-            style="height: 200px; width: 100%; object-fit: contain"
-          />
-        </div>
+        <!-- Add Pagination -->
+        <div class="swiper-pagination"></div>
       </div>
     </div>
 
@@ -831,6 +811,7 @@
     <div
       class="container-fluid new-container"
       style="background-color: #e5ebf1"
+      id="para-empresas"
     >
       <div class="row new-row">
         <div class="col-lg-6 new-col">
@@ -955,6 +936,7 @@
     <div
       class="container-fluid new-container"
       style="background-color: #e5ebf1"
+      id="para-motoristas"
     >
       <div class="row new-row">
         <div class="col-lg-6 new-col">
@@ -1083,7 +1065,7 @@
       </div>
     </div>
 
-    <div class="container-fluid container-custom">
+    <div class="container-fluid container-custom" id="contato">
       <div class="row">
         <!-- Left Column -->
         <div class="col-12 col-md-3 p-3">
@@ -1202,6 +1184,28 @@
             },
             1000: {
               slidesPerView: 4,
+            },
+          },
+        });
+
+        var swiper = new Swiper(".swiper-container-s1", {
+          loop: true,
+          slidesPerView: 1,
+          spaceBetween: 10,
+          navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+          },
+          pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+          },
+          breakpoints: {
+            600: {
+              slidesPerView: 2,
+            },
+            1000: {
+              slidesPerView: 6,
             },
           },
         });
