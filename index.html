@@ -4,22 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>EmpregoMelhor</title>
-
-    <!-- Owl Carousel -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"
-      rel="stylesheet"
-    />
-
+    <!-- Swiper -->
+    <link rel="stylesheet" href="assets/css/swiper-bundle.min.css" />
     <!-- FontAwesome -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
-      integrity="sha512-..."
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-
+    <link rel="stylesheet" href="assets/css/all.min.css" />
     <!-- Oswald font -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -27,7 +15,6 @@
       href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap"
       rel="stylesheet"
     />
-
     <!-- "Ultra" font -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -35,431 +22,19 @@
       href="https://fonts.googleapis.com/css2?family=Ultra&display=swap"
       rel="stylesheet"
     />
-
     <!-- Bootstrap CSS -->
-    <link
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-    <style>
-      html {
-        scroll-behavior: smooth;
-      }
-
-      ul {
-        list-style-type: none;
-        padding: 0;
-      }
-
-      .no-margin {
-        margin: 0 !important;
-        padding: 0 !important;
-      }
-
-      .navbar-brand img {
-        height: 40px;
-      }
-      .btn-custom {
-        background-color: #b844ac; /* Purple background */
-        color: #fff; /* White text */
-        border-radius: 50px; /* Rounded corners */
-        padding: 5px 25px; /* Padding for the button */
-        font-weight: bold; /* Bold text */
-        margin-top: 0.2rem;
-      }
-      .nav-link {
-        font-weight: bold;
-        margin-right: 20px; /* Increased spacing between nav links */
-      }
-      .navbar-nav .nav-item:last-child .nav-link {
-        margin-right: 0; /* No margin for the last nav item */
-      }
-      .carousel-inner {
-        height: 40rem; /* Fixed height for the carousel */
-      }
-      .carousel-h-1 {
-        font-weight: 700;
-        color: #140f8f;
-        letter-spacing: -3px;
-        font-family: "Oswald", sans-serif;
-        font-optical-sizing: auto;
-        font-size: 4rem;
-      }
-      .carousel-p-1 {
-        font-family: "Oswald", sans-serif;
-        font-optical-sizing: auto;
-        font-style: normal;
-        color: #06015b;
-        letter-spacing: 2.8px;
-        line-height: 1;
-        font-size: 2.6rem;
-      }
-      .carousel-h-2 {
-        font-weight: 700;
-        font-size: 4rem;
-        color: #140f8f;
-        font-family: "Oswald", sans-serif;
-        font-optical-sizing: auto;
-      }
-      .carousel-p-2 {
-        font-family: "Oswald", sans-serif;
-        font-optical-sizing: auto;
-        font-style: normal;
-        color: #06015b;
-        letter-spacing: 1px;
-        line-height: 1;
-        font-size: 1.5rem;
-      }
-      .carousel-item {
-        position: relative; /* Position relative for overlay text */
-      }
-      .carousel-item img {
-        width: 100%;
-        height: 100%; /* Make the image take the full height of the carousel */
-        object-fit: cover; /* Ensure the image covers the entire area without distortion */
-      }
-      .heading {
-        color: #06015b;
-        font-weight: 700;
-      }
-      .swiper-container {
-        width: 100%;
-        padding: 20px 0;
-        position: relative; /* Ensure relative positioning */
-        overflow: hidden; /* Ensure content doesn't overflow */
-      }
-
-      .swiper-slide {
-        display: flex;
-        justify-content: center;
-      }
-
-      .swiper-pagination {
-        position: relative;
-        bottom: 10px;
-        text-align: center;
-      }
-
-      .swiper-pagination-bullet {
-        background: #007bff;
-        opacity: 1;
-      }
-
-      .swiper-pagination-bullet-active {
-        background: #0056b3;
-      }
-
-      .swiper-button-next,
-      .swiper-button-prev {
-        color: #007bff;
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        z-index: 10;
-      }
-
-      .swiper-button-next {
-        right: 10px;
-      }
-
-      .swiper-button-prev {
-        left: 10px;
-      }
-
-      .card {
-        width: 100%;
-        margin: 10px;
-      }
-
-      .card-img-top {
-        width: 90%;
-        margin: 30px auto;
-      }
-
-      .card-img {
-        width: 100%;
-        height: auto;
-      }
-
-      .card-body {
-        padding: 10px;
-      }
-
-      .card-title {
-        font-size: 1.2rem;
-        margin-bottom: 0.5rem;
-      }
-
-      .card-subtitle {
-        font-size: 0.9rem;
-        font-weight: 400;
-        color: #6c757d; /* Bootstrap text-muted color */
-      }
-
-      .smaller-card .card-title {
-        font-size: 1rem;
-      }
-
-      .smaller-card .card-subtitle {
-        font-size: 0.8rem;
-      }
-
-      @media (max-width: 768px) {
-        .swiper-button-next,
-        .swiper-button-prev {
-          width: 30px;
-          height: 30px;
-          top: auto;
-          bottom: 10px;
-          transform: none;
-        }
-
-        .swiper-button-next {
-          right: 50px;
-        }
-
-        .swiper-button-prev {
-          left: 50px;
-        }
-
-        .swiper-pagination {
-          bottom: 40px;
-        }
-
-        .card-title {
-          font-size: 1rem;
-        }
-
-        .card-subtitle {
-          font-size: 0.8rem;
-        }
-      }
-
-      .search-cont {
-        background-color: #06015b;
-      }
-
-      .left-column {
-        padding: 30px;
-      }
-
-      .right-column {
-        min-height: 50vh; /* Ensure the column covers the full height */
-        padding-right: 30px;
-        padding-left: 30px;
-        padding-bottom: 0px;
-        padding-top: 50px;
-      }
-
-      .white-cont {
-        background-color: #e5ebf1;
-        min-height: 35vh !important;
-      }
-
-      .full-height {
-        min-height: 60vh;
-        background-color: #e5ebf1;
-      }
-
-      .blue-text {
-        color: #06015b;
-      }
-
-      .testimonial-card {
-        text-align: center;
-        padding: 20px;
-        margin: 20px 0;
-        background-color: #f9f9f9;
-        border-radius: 10px;
-      }
-      .testimonial-card img {
-        width: 150px;
-        height: 150px;
-        border-radius: 50%;
-        object-fit: cover;
-        margin-bottom: 15px;
-      }
-      .testimonial-card h5 {
-        font-weight: bold;
-      }
-      .testimonial-card p {
-        font-style: italic;
-      }
-      .container-custom {
-        background-color: #06015b;
-        color: white;
-        padding: 0px 8%;
-        min-height: 50vh;
-      }
-
-      .new-container {
-        padding-left: 10%;
-        padding-right: 10%;
-        padding-bottom: 0;
-        margin: 0;
-      }
-
-      .new-row {
-        margin: 0;
-      }
-
-      .new-col {
-        padding: 0;
-      }
-
-      .new-text-center {
-        text-align: center;
-      }
-
-      .new-btn {
-        transform: scale(1.7);
-        border: none;
-        margin-top: 20px;
-      }
-
-      .new-content-padding {
-        padding: 20px;
-      }
-
-      .form-group input,
-      .form-group textarea {
-        background-color: #fff;
-        color: white;
-        border-radius: 20px;
-      }
-      .hr-custom {
-        border: 1px solid white;
-      }
-
-      @media (max-width: 992px) {
-        .right-column {
-          margin-top: 30px; /* Add margin to separate from left column when stacked */
-        }
-      }
-
-      @media (min-width: 320px) {
-        /* smartphones, iPhone, portrait 480x320 phones */
-        .carousel-text,
-        .carousel-text-2 {
-          position: absolute; /* Position absolute to overlay text */
-          top: 0%;
-          transform: scale(0.8);
-        }
-        .carousel-text {
-          bottom: 40%;
-        }
-      }
-      @media (min-width: 481px) {
-        /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
-
-        .carousel-text,
-        .carousel-text-2 {
-          position: absolute; /* Position absolute to overlay text */
-          top: 0%;
-          transform: scale(0.8);
-        }
-
-        .carousel-text {
-          bottom: 60%;
-        }
-      }
-      @media (min-width: 641px) {
-        /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
-
-        .carousel-text,
-        .carousel-text-2 {
-          position: absolute; /* Position absolute to overlay text */
-          top: 0%;
-        }
-
-        .carousel-text-2 {
-          left: 15%;
-        }
-
-        .carousel-text {
-          left: 15%;
-        }
-      }
-      @media (min-width: 961px) {
-        /* tablet, landscape iPad, lo-res laptops ands desktops */
-        .carousel-text-2 {
-          left: 15%;
-        }
-
-        .carousel-text {
-          left: 20%;
-        }
-        .rounded {
-          margin-left: 80px;
-        }
-      }
-      @media (min-width: 1025px) {
-        /* big landscape tablets, laptops, and desktops */
-        /* hi-res laptops and desktops */
-        .carousel-text,
-        .carousel-text-2 {
-          position: absolute; /* Position absolute to overlay text */
-          top: 10%; /* Center text vertically */
-          transform: scale(0.8);
-        }
-
-        .carousel-text-2 {
-          left: 15%;
-        }
-
-        .carousel-text {
-          left: 25%;
-        }
-
-        .cadastre {
-          margin-left: 6%;
-        }
-
-        .white-cont {
-          height: 30vh;
-        }
-        .centralize-content {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          height: 100%;
-        }
-      }
-      @media (min-width: 1281px) {
-        /* hi-res laptops and desktops */
-        .carousel-text,
-        .carousel-text-2 {
-          position: absolute; /* Position absolute to overlay text */
-          top: 10%; /* Center text vertically */
-        }
-
-        .carousel-text-2 {
-          left: 15%;
-          transform: scale(1.1);
-        }
-
-        .carousel-text {
-          left: 40%;
-        }
-
-        .anuncie {
-          margin-left: 5%;
-        }
-        .cadastre {
-          margin-left: 6%;
-        }
-
-        .white-cont {
-          height: 30vh;
-        }
-      }
-    </style>
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+    <!-- Index styles -->
+    <link rel="stylesheet" href="assets/css/index.css" />
   </head>
   <body>
     <!-- Navigation Bar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <a class="navbar-brand" href="#">
-        <img src="images/empregomelhor-logo.jpeg" alt="EmpregoMelhor Logo" />
+        <img
+          src="assets/images/empregomelhor-logo.jpeg"
+          alt="EmpregoMelhor Logo"
+        />
       </a>
       <button
         class="navbar-toggler"
@@ -513,7 +88,7 @@
       <div class="carousel-inner">
         <div class="carousel-item active">
           <img
-            src="images/carousel-2.jpeg"
+            src="assets/images/carousel-2.jpeg"
             class="d-block w-100"
             style="height: 40rem"
             alt="First slide"
@@ -534,7 +109,7 @@
         </div>
         <div class="carousel-item">
           <img
-            src="images/carousel-1.jpeg"
+            src="assets/images/carousel-1.jpeg"
             class="d-block w-100"
             style="height: 40rem"
             alt="Second slide"
@@ -583,25 +158,24 @@
       <div class="swiper-container swiper-container-s1">
         <div class="swiper-wrapper">
           <div class="swiper-slide">
-            <img src="images/si1.jpeg" alt="Image 1" class="img-fluid" />
+            <img src="assets/images/si1.jpeg" alt="Image 1" class="img-fluid" />
           </div>
           <div class="swiper-slide">
-            <img src="images/si2.jpeg" alt="Image 2" class="img-fluid" />
+            <img src="assets/images/si2.jpeg" alt="Image 2" class="img-fluid" />
           </div>
           <div class="swiper-slide">
-            <img src="images/si3.jpeg" alt="Image 3" class="img-fluid" />
+            <img src="assets/images/si3.jpeg" alt="Image 3" class="img-fluid" />
           </div>
           <div class="swiper-slide">
-            <img src="images/si4.jpeg" alt="Image 4" class="img-fluid" />
+            <img src="assets/images/si4.jpeg" alt="Image 4" class="img-fluid" />
           </div>
           <div class="swiper-slide">
-            <img src="images/si5.jpeg" alt="Image 5" class="img-fluid" />
+            <img src="assets/images/si5.jpeg" alt="Image 5" class="img-fluid" />
           </div>
           <div class="swiper-slide">
-            <img src="images/si6.jpeg" alt="Image 6" class="img-fluid" />
+            <img src="assets/images/si6.jpeg" alt="Image 6" class="img-fluid" />
           </div>
         </div>
-        <!-- Add Pagination -->
         <div class="swiper-pagination"></div>
       </div>
     </div>
@@ -662,7 +236,6 @@
               </div>
             </div>
           </div>
-          <!-- Repeat slides as necessary -->
         </div>
         <!-- Add Pagination -->
         <div class="swiper-pagination"></div>
@@ -798,7 +371,7 @@
             class="right-column d-flex flex-grow-1 align-items-end justify-content-center"
           >
             <img
-              src="images/tablet.png"
+              src="assets/images/tablet.png"
               alt="Image"
               class="img-fluid"
               style="max-width: 100%; height: auto; max-height: 100%"
@@ -842,7 +415,7 @@
           class="col-md-4 new-col d-flex align-items-center justify-content-center"
         >
           <img
-            src="images/coworking.png"
+            src="assets/images/coworking.png"
             class="img-fluid"
             style="max-width: 100%; height: auto"
             alt="Placeholder Image"
@@ -884,7 +457,7 @@
       <div class="row">
         <div class="col-lg-2 col-md-4 col-6 mb-3">
           <img
-            src="images/ci1.jpeg"
+            src="assets/images/ci1.jpeg"
             alt="Image 1"
             class="img-fluid"
             style="height: 200px; width: 100%; object-fit: contain"
@@ -892,7 +465,7 @@
         </div>
         <div class="col-lg-2 col-md-4 col-6 mb-3">
           <img
-            src="images/ci2.jpeg"
+            src="assets/images/ci2.jpeg"
             alt="Image 2"
             class="img-fluid"
             style="height: 200px; width: 100%; object-fit: contain"
@@ -900,7 +473,7 @@
         </div>
         <div class="col-lg-2 col-md-4 col-6 mb-3">
           <img
-            src="images/ci3.jpeg"
+            src="assets/images/ci3.jpeg"
             alt="Image 3"
             class="img-fluid"
             style="height: 200px; width: 100%; object-fit: contain"
@@ -908,7 +481,7 @@
         </div>
         <div class="col-lg-2 col-md-4 col-6 mb-3">
           <img
-            src="images/ci4.jpeg"
+            src="assets/images/ci4.jpeg"
             alt="Image 4"
             class="img-fluid"
             style="height: 200px; width: 100%; object-fit: contain"
@@ -916,7 +489,7 @@
         </div>
         <div class="col-lg-2 col-md-4 col-6 mb-3">
           <img
-            src="images/ci5.jpeg"
+            src="assets/images/ci5.jpeg"
             alt="Image 5"
             class="img-fluid"
             style="height: 200px; width: 100%; object-fit: contain"
@@ -924,7 +497,7 @@
         </div>
         <div class="col-lg-2 col-md-4 col-6 mb-3">
           <img
-            src="images/ci6.jpeg"
+            src="assets/images/ci6.jpeg"
             alt="Image 6"
             class="img-fluid"
             style="height: 200px; width: 100%; object-fit: contain"
@@ -992,7 +565,7 @@
           class="col-md-4 new-col d-flex align-items-center justify-content-center"
         >
           <img
-            src="images/worker-draw.png"
+            src="assets/images/worker-draw.png"
             class="img-fluid"
             style="max-width: 100%; height: auto"
             alt="Placeholder Image"
@@ -1010,10 +583,10 @@
       <div class="row">
         <div class="col-md-6 col-lg-3">
           <div class="testimonial-card">
-            <img src="images/d1.jpeg" alt="Foto de Pessoa 1" />
+            <img src="assets/images/d1.jpeg" alt="Foto de Pessoa 1" />
             <h5 class="heading">Felipe Rodrigues</h5>
             <h6 class="blue-text">Empresário</h6>
-            <p class="blue-text">
+            <p class="blue-text" style="line-height: 1rem">
               "A possibilidade de me conectar a milhares de motoristas
               qualificados em todo o Brasil deu a tranquilidade que eu
               precisava. Agora posso investir na compra de mais caminhões ou
@@ -1024,10 +597,10 @@
         </div>
         <div class="col-md-6 col-lg-3">
           <div class="testimonial-card">
-            <img src="images/d3.jpeg" alt="Foto de Pessoa 2" />
+            <img src="assets/images/d3.jpeg" alt="Foto de Pessoa 2" />
             <h5 class="heading">Marcia Vieira</h5>
             <h6 class="blue-text">Carreteira</h6>
-            <p class="blue-text">
+            <p class="blue-text" style="line-height: 1rem">
               “Como mulher, sempre tive dificuldade em encontrar empregos como
               caminhoneira. Ao usar o site da Emprego Melhor, minha busca se
               tornou muito mais fácil, permitindo-me candidatar a várias vagas
@@ -1037,10 +610,10 @@
         </div>
         <div class="col-md-6 col-lg-3">
           <div class="testimonial-card">
-            <img src="images/d4.jpeg" alt="Foto de Pessoa 3" />
+            <img src="assets/images/d4.jpeg" alt="Foto de Pessoa 3" />
             <h5 class="heading">Fernando Ribeiro</h5>
             <h6 class="blue-text">Carreteiro</h6>
-            <p class="blue-text">
+            <p class="blue-text" style="line-height: 1rem">
               “As ferramentas de pesquisa avançadas me ajudaram a encontrar
               exatamente o tipo de trabalho que eu procurava. Agora, estou
               trabalhando como caminhoneiro em uma das melhores empresas.”
@@ -1050,10 +623,10 @@
         </div>
         <div class="col-md-6 col-lg-3">
           <div class="testimonial-card">
-            <img src="images/d2.jpeg" alt="Foto de Pessoa 4" />
+            <img src="assets/images/d2.jpeg" alt="Foto de Pessoa 4" />
             <h5 class="heading">Renata Fonseca</h5>
             <h6 class="blue-text">Gerente de RH</h6>
-            <p class="blue-text">
+            <p class="blue-text" style="line-height: 1rem">
               "A contratação ficou mais assertiva com os filtros de pesquisa
               avançada, que ajudaram a encontrar o profissional certo. As
               entrevistas por videochamada otimizaram e reduziram custos. Pude
@@ -1111,6 +684,15 @@
                 placeholder="Digite sua mensagem*"
               ></textarea>
             </div>
+            <div class="form-group text-center">
+              <button
+                type="submit"
+                class="btn-custom text-center"
+                style="transform: scale(1.2)"
+              >
+                Enviar
+              </button>
+            </div>
           </form>
         </div>
 
@@ -1161,82 +743,12 @@
         </h4>
       </div>
     </div>
-
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
-    <script>
-      $(document).ready(function () {
-        new Swiper(".best-vagas-carousel", {
-          loop: true,
-          slidesPerView: 1,
-          spaceBetween: 10,
-          navigation: {
-            nextEl: ".swiper-button-next",
-            prevEl: ".swiper-button-prev",
-          },
-          pagination: {
-            el: ".swiper-pagination",
-            clickable: true,
-          },
-          breakpoints: {
-            600: {
-              slidesPerView: 2,
-            },
-            1000: {
-              slidesPerView: 4,
-            },
-          },
-        });
-
-        var swiper = new Swiper(".swiper-container-s1", {
-          loop: true,
-          slidesPerView: 1,
-          spaceBetween: 10,
-          navigation: {
-            nextEl: ".swiper-button-next",
-            prevEl: ".swiper-button-prev",
-          },
-          pagination: {
-            el: ".swiper-pagination",
-            clickable: true,
-          },
-          breakpoints: {
-            600: {
-              slidesPerView: 2,
-            },
-            1000: {
-              slidesPerView: 6,
-            },
-          },
-        });
-
-        new Swiper(".latest-vagas-carousel", {
-          loop: true,
-          slidesPerView: 1,
-          spaceBetween: 10,
-          navigation: {
-            nextEl: ".swiper-button-next",
-            prevEl: ".swiper-button-prev",
-          },
-          pagination: {
-            el: ".swiper-pagination",
-            clickable: true,
-          },
-          breakpoints: {
-            600: {
-              slidesPerView: 2,
-            },
-            1000: {
-              slidesPerView: 4,
-            },
-          },
-        });
-      });
-    </script>
-
+    <script src="assets/js/jquery-3.5.1.min.js"></script>
+    <script src="assets/js/swiper-bundle.min.js"></script>
+    <script src="assets/js/index.js"></script>
     <!-- Bootstrap JS and dependencies -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="assets/js/jquery-3.5.1.slim.min.js"></script>
+    <script src="assets/js/popper.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
   </body>
 </html>
