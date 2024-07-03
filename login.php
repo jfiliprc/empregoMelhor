@@ -9,7 +9,7 @@
     <!-- Recaptcha API -->
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <!-- Login styles -->
-    <link rel="stylesheet" href="assets/css/login.css" />
+    <link rel="stylesheet" href="assets/css/register-login.css" />
   </head>
   <body>
     <div class="container d-flex flex-wrap justify-content-between">
@@ -64,7 +64,10 @@
         </form>
       </div>
 
-      <div class="right-container col-md-12 col-lg-6" style="padding-top: 5%">
+      <div
+        class="right-container text-center col-md-12 col-lg-6"
+        style="padding-top: 5%"
+      >
         <div class="row">
           <img
             class="col-12"
@@ -72,15 +75,21 @@
             src="assets/images/empregomelhor-logo.jpeg"
             alt=""
           />
-          <h2 class="text-blue" style="font-size: 1.2rem; letter-spacing: -1px">
-            Alavanque seu Negócio ou Encontre Novas Oportunidades de Trabalho.
-          </h2>
+          <div class="col-12">
+            <h2
+              class="text-blue"
+              style="font-size: 1.1rem; letter-spacing: -1px"
+            >
+              Alavanque seu Negócio ou Encontre Novas Oportunidades de Trabalho.
+            </h2>
+          </div>
           <img
             class="col-12"
             src="assets/images/painel.png"
             alt="Imagem de Registro"
           />
         </div>
+      </div>
       </div>
     </div>
   </body>
