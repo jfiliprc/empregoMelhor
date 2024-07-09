@@ -12,8 +12,8 @@ $(document).ready(function () {
       clickable: true,
     },
     breakpoints: {
-      600: {
-        slidesPerView: 2,
+      0: {
+        slidesPerView: 3,
       },
       1000: {
         slidesPerView: 4,
@@ -34,8 +34,8 @@ $(document).ready(function () {
       clickable: true,
     },
     breakpoints: {
-      600: {
-        slidesPerView: 2,
+      0: {
+        slidesPerView: 3,
       },
       1000: {
         slidesPerView: 6,
@@ -56,8 +56,8 @@ $(document).ready(function () {
       clickable: true,
     },
     breakpoints: {
-      600: {
-        slidesPerView: 2,
+      0: {
+        slidesPerView: 3,
       },
       1000: {
         slidesPerView: 4,
