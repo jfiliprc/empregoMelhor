@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dados cadastrais</title>
+    <!-- Link do Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Link do CSS personalizado -->
+    <link href="styles.css" rel="stylesheet" />
+
+    <style>
+        /* styles.css */
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .complete {
+            margin: 0;
+        }
+
+        .blue-bg {
+            background-color: #081c44;
+        }
+
+        .light-blue-bg {
+            background-color: #d1d9de;
+        }
+
+        .tab-blue-bg {
+            background-color: #004ca6;
+        }
+
+        .cf-1 {
+            height: 5rem;
+            width: 100%;
+        }
+
+        .cf-2 {
+            height: 3rem;
+            width: 100%;
+        }
+
+        .cf-3 {
+            height: auto;
+            width: 90%;
+            border-radius: 10px;
+            position: absolute;
+            top: 5.5rem;
+            left: 50%;
+            transform: translate(-50%);
+            padding: 1rem;
+        }
+
+        .step-square {
+            background-color: #ffffff;
+            border: 2px solid #004ca6;
+            border-radius: 10px;
+            text-align: center;
+            padding: 1rem;
+            margin: 0.5rem;
+            flex: 1;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .step-square.active {
+            background-color: #004ca6;
+            color: #ffffff;
+        }
+
+        .step-square h4 {
+            margin: 0.5rem 0;
+        }
+
+        .step-square p {
+            font-size: 0.9rem;
+        }
+
+        .registration-container {
+            position: relative;
+            margin-top: 12rem;
+            /* Adjust this value as needed to sit below the absolute container */
+        }
+
+        .left-col img {
+            right: 0.5rem;
+            bottom: 0px;
+            top: 0.5rem;
+            position: absolute;
+            display: block;
+            margin: 0 auto;
+            max-width: 100%;
+        }
+
+        .right-col img {
+            display: block;
+            margin: 1rem auto;
+            max-width: 50%;
+        }
+
+        .input-group {
+            margin-bottom: 1rem;
+        }
+
+        .section-container {
+            width: 100%;
+            padding: 1rem;
+            /* Adjust padding as needed */
+            box-sizing: border-box;
+            /* Ensures padding is included in width */
+        }
+
+        .registration-container {
+            position: relative;
+            margin-top: 12rem;
+            /* Adjust this value as needed */
+        }
+
+        @media (max-width: 674px) {
+            .registration-container {
+                margin-top: 20rem;
+                /* Adjust for tablets */
+            }
+        }
+
+        @media (max-width: 402px) {
+            .registration-container {
+                margin-top: 28rem;
+                /* Adjust for mobile phones */
+            }
+
+            .left-col {
+                display: none;
+                /* Hide left column on mobile devices */
+            }
+        }
+
+        .section-container {
+            display: none;
+        }
+
+        .section-container.active {
+            display: block;
+        }
+
+        .btn-container {
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .form-control {
+            border: 1px solid black;
+            border-radius: 5px;
+        }
+
+        .blue-text {
+            color: #004ca6;
+        }
+
+        .checkbox-label {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            margin-bottom: 15px;
+            /* Ajuste a margem conforme necessário */
+        }
+
+        .checkbox-label img {
+            width: 60px;
+            /* Largura da imagem */
+            height: auto;
+            /* Altura automática para manter proporção */
+            margin-right: 20px;
+            /* Espaçamento entre imagem e rótulo */
+        }
+
+        input[type="checkbox"] {
+            border: 0px;
+            width: 25px;
+            height: 30px;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid d-flex blue-bg cf-1 align-items-center justify-content-center">
+        <h2 class="text-center complete text-white">
+            Complete seus dados cadastrais
+        </h2>
+    </div>
+
+    <div class="container-fluid blue-bg cf-2">
+        <div class="container-fluid light-blue-bg cf-3 d-flex flex-wrap justify-content-around">
+            <div class="step-square" data-step="1">
+                <h4>1</h4>
+                <p>Dados cadastrais</p>
+            </div>
+            <div class="step-square" data-step="2">
+                <h4>2</h4>
+                <p>Seu perfil</p>
+            </div>
+            <div class="step-square" data-step="3">
+                <h4>3</h4>
+                <p>Dados Profissionais</p>
+            </div>
+            <div class="step-square" data-step="4">
+                <h4>4</h4>
+                <p>Sobre suas experiências</p>
+            </div>
+            <div class="step-square" data-step="5">
+                <h4>5</h4>
+                <p>Pretenção Salarial</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid registration-container">
+        <!-- Section 1 -->
+        <div class="section-container active" id="section-1">
+            <div class="row">
+                <div class="col-md-3 left-col d-none d-md-block">
+                    <img src="assets/images/info-1.PNG" alt="Image Description" />
+                </div>
+                <div class="col-md-6 center-col">
+                    <div class="row">
+                        <div class="form-group col-12">
+                            <label for="nome" class="blue-text font-weight-bold">Nome Completo</label>
+                            <input type="text" id="nome" class="form-control" placeholder="" />
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="cpf" class="blue-text font-weight-bold">CPF</label>
+                            <input type="number" id="cpf" class="form-control" placeholder="" />
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="telefone" class="blue-text font-weight-bold">Telefone</label>
+                            <input type="password" id="telefone" class="form-control" placeholder="" />
+                        </div>
+                        <div class="form-group col-12">
+                            <label for="email" class="blue-text font-weight-bold">E-mail</label>
+                            <input type="text" id="email" class="form-control" placeholder="" />
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="cep" class="blue-text font-weight-bold">CEP</label>
+                            <button class="btn-primary btn-rounded ml-2" style="border-radius: 10px;">
+                                Buscar
+                            </button>
+                            <input type="text" id="cep" class="form-control" placeholder="" />
+                        </div>
+                        <div class="form-group col-md-10">
+                            <label for="endereco" class="blue-text font-weight-bold">Endereço</label>
+                            <input type="number" id="endereco" class="form-control" placeholder="" />
+                        </div>
+                        <div class="form-group col-md-2">
+                            <label for="numero" class="blue-text font-weight-bold">Número</label>
+                            <input type="password" id="numero" class="form-control" placeholder="" />
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="complemento" class="blue-text font-weight-bold">Complemento</label>
+                            <input type="number" id="complemento" class="form-control" placeholder="" />
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="bairro" class="blue-text font-weight-bold">Bairro</label>
+                            <input type="password" id="bairro" class="form-control" placeholder="" />
+                        </div>
+                        <div class="form-group col-md-10">
+                            <label for="cidade" class="blue-text font-weight-bold">Cidade</label>
+                            <input type="number" id="cidade" class="form-control" placeholder="" />
+                        </div>
+                        <div class="form-group col-md-2">
+                            <label for="estado" class="blue-text font-weight-bold">Estado</label>
+                            <input type="password" id="estado" class="form-control" placeholder="" />
+                        </div>
+                        <div class="btn-container col-12">
+                            <button class="btn btn-primary" onclick="nextSection()">
+                                Salvar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3 right-col">
+                    <div class="row">
+                        <div class="col-4 col-md-12">
+                            <img src="assets/images/cnh.PNG" class="img-fluid text-center" alt="Image 1" />
+                        </div>
+                        <div class="col-4 col-md-12">
+                            <img src="assets/images/your-pic.PNG" class="img-fluid text-center" alt="Image 2" />
+                        </div>
+                        <div class="col-4 col-md-12">
+                            <img src="assets/images/address.PNG" class="img-fluid text-center" alt="Image 3" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Add more sections here as needed -->
+        <!-- Section 2 -->
+        <div class="section-container" id="section-2">
+            <div class="row">
+                <div class="col-md-3 left-col d-none d-md-block">
+                    <img src="assets/images/info-2.PNG" class="mt-5 pt-2" alt="Image Description" />
+                </div>
+                <div class="col-md-9 center-col">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="row">
+                                <div class="col-12 tab-blue-bg pt-2 pb-2 text-center">
+                                    <span class="font-weight-bold text-white">Dados Profissionais</span>
+                                </div>
+                            </div>
+                            <div class="row light-blue-bg">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="checkbox1" />
+                                            <label class="form-check-label checkbox-label" for="checkbox1">
+                                                <img src="assets/images/cb (1).png" style="transform: scale(1.3);"
+                                                    class="mt-3 ml-3" alt="Image 1" />
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <!-- Add more checkboxes as needed -->
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="checkbox2" />
+                                            <label class="form-check-label checkbox-label" for="checkbox2">
+                                                <img src="assets/images/cb (2).png" class="mt-2 ml-2" alt="Image 2" />
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <!-- Add more checkboxes as needed -->
+                                </div>
+                            </div>
+                            <div class="row light-blue-bg mt-3">
+                                <div class="form-group col-12">
+                                    <label for="nome" class="blue-text font-weight-bold">Nome Completo</label>
+                                    <input type="text" id="nome" class="form-control" placeholder="" />
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="cpf" class="blue-text font-weight-bold">CPF</label>
+                                    <input type="number" id="cpf" class="form-control" placeholder="" />
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="telefone" class="blue-text font-weight-bold">Telefone</label>
+                                    <input type="password" id="telefone" class="form-control" placeholder="" />
+                                </div>
+                                <div class="form-group col-12">
+                                    <label for="nome" class="blue-text font-weight-bold">Nome Completo</label>
+                                    <input type="text" id="nome" class="form-control" placeholder="" />
+                                </div>
+                                <span class="blue-text font-weight-bold col-12 text-center">Tempo de experiência</span>
+                                <div class="form-group col-md-6">
+                                    <label for="anos" class="blue-text font-weight-bold">Anos</label>
+                                    <input type="number" id="anos" class="form-control" placeholder="" />
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="Meses" class="blue-text font-weight-bold">Meses</label>
+                                    <input type="number" id="meses" class="form-control" placeholder="" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 pr-3">
+                            <div class="row light-blue-bg ml-1">
+                                <div class="col-12 tab-blue-bg pt-2 pb-2 text-center">
+                                    <span class="font-weight-bold text-white">Tipo de veiculo de Carga
+                                    </span>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="checkbox1" />
+                                            <label class="form-check-label font-weight-bold blue-text mt-2 ml-2"
+                                                for="checkbox1">Basculante</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="checkbox1" />
+                                            <label class="form-check-label font-weight-bold blue-text mt-2 ml-2"
+                                                for="checkbox1">Baú</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="checkbox1" />
+                                            <label class="form-check-label font-weight-bold blue-text mt-2 ml-2"
+                                                for="checkbox1">Carga
+                                                Seca</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="checkbox1" />
+                                            <label class="form-check-label font-weight-bold blue-text mt-2 ml-2"
+                                                for="checkbox1">Cegonha</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="checkbox1" />
+                                            <label class="form-check-label font-weight-bold blue-text mt-2 ml-2"
+                                                for="checkbox1">Graneleiro</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="checkbox1" />
+                                            <label class="form-check-label font-weight-bold blue-text mt-2 ml-2"
+                                                for="checkbox1">Guincho</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="checkbox2" />
+                                            <label class="form-check-label font-weight-bold blue-text mt-2 ml-2"
+                                                for="checkbox2">Munk</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="checkbox2" />
+                                            <label class="form-check-label font-weight-bold blue-text mt-2 ml-2"
+                                                for="checkbox2">Prancha</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="checkbox2" />
+                                            <label class="form-check-label font-weight-bold blue-text mt-2 ml-2"
+                                                for="checkbox2">Sider</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="checkbox2" />
+                                            <label class="form-check-label font-weight-bold blue-text mt-2 ml-2"
+                                                for="checkbox2">Tanque</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="checkbox2" />
+                                            <label class="form-check-label font-weight-bold blue-text mt-2 ml-2"
+                                                for="checkbox2">Transporte de
+                                                bonina</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="checkbox2" />
+                                            <label class="form-check-label font-weight-bold blue-text mt-2 ml-2"
+                                                for="checkbox2">Conteiner</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="row light-blue-bg ml-1">
+                                <div class="col-12 tab-blue-bg pt-2 pb-2 text-center">
+                                    <span class="font-weight-bold text-white">Qualificação Profissional
+                                    </span>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="checkbox1" />
+                                            <label class="form-check-label font-weight-bold blue-text mt-2 ml-2"
+                                                for="checkbox1">Cargas
+                                                perigosas – MOPP</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="checkbox1" />
+                                            <label class="form-check-label font-weight-bold blue-text mt-2 ml-2"
+                                                for="checkbox1">Cargas
+                                                indivisíveis</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="checkbox1" />
+                                            <label class="form-check-label font-weight-bold blue-text mt-2 ml-2"
+                                                for="checkbox1">Controle da
+                                                Jornada</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="checkbox1" />
+                                            <label class="form-check-label font-weight-bold blue-text mt-2 ml-2"
+                                                for="checkbox1">Direção
+                                                Econômica</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="checkbox1" />
+                                            <label class="form-check-label font-weight-bold blue-text mt-2 ml-2"
+                                                for="checkbox1">Direção
+                                                Defensiva</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="checkbox1" />
+                                            <label class="form-check-label font-weight-bold blue-text mt-2 ml-2"
+                                                for="checkbox1">NR 20</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="checkbox1" />
+                                            <label class="form-check-label font-weight-bold blue-text mt-2 ml-2"
+                                                for="checkbox1">NR 35</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="checkbox1" />
+                                            <label class="form-check-label font-weight-bold blue-text mt-2 ml-2"
+                                                for="checkbox1">Qualificação
+                                                Técnica</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="checkbox1" />
+                                            <label class="form-check-label font-weight-bold blue-text mt-2 ml-2"
+                                                for="checkbox1">Tecnologia
+                                                Embarcada</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="checkbox1" />
+                                            <label class="form-check-label font-weight-bold blue-text mt-2 ml-2"
+                                                for="checkbox1">Transporte
+                                                Coletivo</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="checkbox1" />
+                                            <label class="form-check-label font-weight-bold blue-text mt-2 ml-2"
+                                                for="checkbox1">Transporte
+                                                Escolar</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="checkbox1" />
+                                            <label class="form-check-label font-weight-bold blue-text mt-2 ml-2"
+                                                for="checkbox1">Veículos de
+                                                Emergência</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="row ml-1 light-blue-bg">
+                                <div class="col-12 tab-blue-bg pt-2 pb-2 text-center">
+                                    <span class="font-weight-bold text-white">Dados Profissionais</span>
+                                </div>
+                                <div class="form-group col-12">
+                                    <label for="nome" class="blue-text font-weight-bold">Nome Completo</label>
+                                    <input type="text" id="nome" class="form-control" placeholder="" />
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="cpf" class="blue-text font-weight-bold">CPF</label>
+                                    <input type="number" id="cpf" class="form-control" placeholder="" />
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="telefone" class="blue-text font-weight-bold">Telefone</label>
+                                    <input type="password" id="telefone" class="form-control" placeholder="" />
+                                </div>
+                                <div class="form-group col-12">
+                                    <label for="email" class="blue-text font-weight-bold">E-mail</label>
+                                    <input type="text" id="email" class="form-control" placeholder="" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="btn-container">
+                        <button class="btn btn-secondary" onclick="prevSection()">
+                            Previous
+                        </button>
+                        <button class="btn btn-primary" onclick="nextSection()">
+                            Next
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <!-- Section 3 -->
+    <div class="section-container" id="section-3">
+        <div class="row">
+            <div class="col-md-3 left-col d-none d-md-block">
+                <img src="assets/images/info-3.PNG" class="mt-5 pt-2" alt="Image Description">
+            </div>
+            <div class="col-md-5">
+                <div class="row">
+                    <div class="form-group col-12">
+                        <label for="tipoContrato1" class="blue-text font-weight-bold">Tipo de Contrato</label>
+                        <select id="tipoContrato1" class="form-control">
+                            <option value="" disabled selected>Selecione o tipo de contrato</option>
+                            <option value="CLT">CLT</option>
+                            <option value="temp">Temporário</option>
+                            <option value="both">CLT ou Temporário</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-6" id="salarioGroup" style="display:none;">
+                        <label for="salario1" class="blue-text font-weight-bold">Salário</label>
+                        <input type="number" id="salario1" class="form-control" placeholder="">
+                    </div>
+                    <div class="form-group col-md-6" id="valorDiariaGroup" style="display:none;">
+                        <label for="valorDiaria1" class="blue-text font-weight-bold">Valor Diária</label>
+                        <input type="number" id="valorDiaria1" class="form-control" placeholder="">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="row ml-3">
+                    <div class="col-6 light-blue-bg p-3" style="border-radius: 10px; border: solid 1px;">
+                        <!-- First layer of checkboxes -->
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="checkbox1">
+                            <label class="form-check-label font-weight-bold blue-text mt-2 ml-2" for="checkbox1">
+                                Convênio Médico
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="checkbox2">
+                            <label class="form-check-label font-weight-bold blue-text mt-2 ml-2" for="checkbox2">
+                                Convênio Odontológico
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="checkbox1">
+                            <label class="form-check-label font-weight-bold blue-text mt-2 ml-2" for="checkbox1">
+                                Seguro de Vida
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="checkbox2">
+                            <label class="form-check-label font-weight-bold blue-text mt-2 ml-2" for="checkbox2">
+                                Auxílio Transporte
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="checkbox1">
+                            <label class="form-check-label font-weight-bold blue-text mt-2 ml-2" for="checkbox1">
+                                Vale Alimentação
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="checkbox2">
+                            <label class="form-check-label font-weight-bold blue-text mt-2 ml-2" for="checkbox2">
+                                PLR/Comissão
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+                <div class="btn-container">
+                    <button class="btn btn-secondary" onclick="prevSection()">Previous</button>
+                    <button class="btn btn-primary" onclick="nextSection()">Next</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 4 -->
+    <div class="section-container" id="section-4">
+        <div class="row">
+            <div class="col-md-3 left-col d-none d-md-block">
+                <img src="assets/images/info-1.PNG" alt="Image Description">
+            </div>
+            <div class="col-md-9 d-flex justify-content-center">
+                <div class="col-md-7">
+                    <span class="font-weight-bold blue-text" style="font-size: 1.2rem;">Local da prestação do
+                        serviço</span>
+                    <div class="row light-blue-bg p-3 pt-4" style="border-radius: 20px;">
+                        <div class="form-group col-md-2">
+                            <label for="estado" class="blue-text font-weight-bold">Estado</label>
+                            <input type="text" id="estado" class="form-control" placeholder="">
+                        </div>
+                        <div class="form-group col-md-10">
+                            <label for="cidade" class="blue-text font-weight-bold">Cidade</label>
+                            <input type="text" id="cidade" class="form-control" placeholder="">
+                        </div>
+                    </div>
+                    <div class="row light-blue-bg mt-3">
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="checkbox1" />
+                                    <label class="form-check-label font-weight-bold blue-text mt-2 ml-2"
+                                        for="checkbox1">Brasil</label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="checkbox1" />
+                                    <label class="form-check-label font-weight-bold blue-text mt-2 ml-2"
+                                        for="checkbox1">Centro
+                                        Oeste</label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="checkbox1" />
+                                    <label class="form-check-label font-weight-bold blue-text mt-2 ml-2"
+                                        for="checkbox1">Norte</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="checkbox1" />
+                                    <label class="form-check-label font-weight-bold blue-text mt-2 ml-2"
+                                        for="checkbox1">Sudeste</label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="checkbox1" />
+                                    <label class="form-check-label font-weight-bold blue-text mt-2 ml-2"
+                                        for="checkbox1">Sul</label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="checkbox1" />
+                                    <label class="form-check-label font-weight-bold blue-text mt-2 ml-2"
+                                        for="checkbox1">Nordeste</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="btn-container col-12">
+                            <button class="btn btn-secondary" onclick="prevSection()">Previous</button>
+                            <button class="btn btn-primary" onclick="nextSection()">Next</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 5 -->
+    <div class="section-container" id="section-5">
+        <div class="row">
+            <div class="col-md-3 left-col d-none d-md-block">
+                <img src="assets/images/info-5.PNG" alt="Image Description">
+            </div>
+
+            <div class="col-md-9 justify-content-center">
+                <div class="row">
+                    <div class="form-group col-9">
+                        <label for="definase" class="blue-text font-weight-bold">Defina-se em duas palavras.</label>
+                        <input type="text" id="definase" class="form-control" placeholder="" />
+                    </div>
+                </div>
+                <div class="col-12 p-0" style="max-width: 800px;">
+                    <label for="text1" class="blue-text font-weight-bold">Escreva um pouco sobre você</label>
+                    <textarea id="text1"
+                        style="width: 100%; height: 300px; padding: 10px; font-size: 1em; border: 2px solid #ccc; border-radius: 5px; resize: none; box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);"
+                        onfocus="this.style.borderColor='#007bff';" onblur="this.style.borderColor='#ccc';"></textarea>
+                    <button type="button" class="btn-primary" id="buttonCorrigir">Corrigir e melhorar por inteligência
+                        artificial</button>
+                </div>
+                <div class="col-12 p-0" style="max-width: 800px;">
+                    <textarea id="text2"
+                        style="width: 100%; height: 300px; padding: 10px; font-size: 1em; border: 2px solid #ccc; border-radius: 5px; resize: none; box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);"
+                        onfocus="this.style.borderColor='#007bff';" onblur="this.style.borderColor='#ccc';"></textarea>
+                </div>
+            </div>
+
+            <div class="btn-container col-12 text-center">
+                <button class="btn btn-secondary" onclick="prevSection()">
+                    Previous
+                </button>
+                <button class="btn btn-primary" onclick="nextSection()">Submit</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Link do jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <!-- Link do Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <!-- Link do Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        let currentSection = 1;
+
+        function showSection(sectionId) {
+            document.querySelectorAll(".section-container").forEach((section) => {
+                section.classList.remove("active");
+            });
+            document.getElementById(sectionId).classList.add("active");
+        }
+
+        function nextSection() {
+            if (currentSection < 5) {
+                // Adjust this number based on the total number of sections
+                currentSection++;
+                showSection("section-" + currentSection);
+                updateSteps();
+            }
+        }
+
+        function prevSection() {
+            if (currentSection > 1) {
+                currentSection--;
+                showSection("section-" + currentSection);
+                updateSteps();
+            }
+        }
+
+        function updateSteps() {
+            document.querySelectorAll(".step-square").forEach((square) => {
+                const step = parseInt(square.getAttribute("data-step"));
+                if (step === currentSection) {
+                    square.classList.add("active");
+                } else {
+                    square.classList.remove("active");
+                }
+            });
+        }
+
+        // Inicializa o estado inicial
+        showSection("section-1");
+        updateSteps();
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const tipoContrato = document.getElementById('tipoContrato1');
+            const salarioGroup = document.getElementById('salarioGroup');
+            const valorDiariaGroup = document.getElementById('valorDiariaGroup');
+
+            tipoContrato.addEventListener('change', function () {
+                const selectedValue = this.value;
+                salarioGroup.style.display = 'none';
+                valorDiariaGroup.style.display = 'none';
+
+                if (selectedValue === 'CLT') {
+                    salarioGroup.style.display = 'block';
+                } else if (selectedValue === 'temp') {
+                    valorDiariaGroup.style.display = 'block';
+                } else if (selectedValue === 'both') {
+                    salarioGroup.style.display = 'block';
+                    valorDiariaGroup.style.display = 'block';
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
